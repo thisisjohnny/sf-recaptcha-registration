@@ -1,0 +1,22 @@
+<template>
+    <lightning-card>
+        <div class="slds-p-around_medium">
+            <!-- base information for contact creation -->
+            <lightning-input label="First Name" onchange={handleFirstNameChange} required></lightning-input>
+            <lightning-input label="Last Name" onchange={handleLastNameChange} required></lightning-input>
+            <lightning-input type="email" label="Email Address" onchange={handleEmailChange} required></lightning-input>
+
+            <!-- div placeholder for recaptcha -->
+            <div class="slds-p-top_medium slds-align_absolute-center">
+                <div class="recaptchaElement"></div>
+            </div>
+
+            <!-- dynamic message if user fails recaptcha -->
+            <template if:true={showMessage}>
+                <p style="color:red;">Please verify that you are not a robot</p>
+            </template>
+
+            <lightning-button variant="brand" label="Register" icon-name="utility:adduser" onclick={handleRegistration}></lightning-button>
+        </div>
+    </lightning-card>
+</template>
